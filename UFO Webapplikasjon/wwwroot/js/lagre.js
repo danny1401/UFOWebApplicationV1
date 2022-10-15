@@ -16,9 +16,6 @@
         dateposted : formatDate,
         datetime : $("#datetime").val(),
         comments : $("#comments").val(),
-        firstname: $("#firstname").val(),
-        lastname: $("#lastname").val(),
-        phoneNr: $("#phoneNr").val()
     }
     const url = "Sighting/Lagre";
     $.post(url, report, function (OK) {

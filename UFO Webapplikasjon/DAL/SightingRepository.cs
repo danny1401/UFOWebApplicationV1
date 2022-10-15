@@ -17,6 +17,7 @@ namespace UFO_Webapplikasjon.DAL
             try
             {
                 var newSightingRow = new Sightings();
+
                 newSightingRow.City = innSighting.City;
                 newSightingRow.Country = innSighting.Country;
                 newSightingRow.Duration = innSighting.Duration;
@@ -24,21 +25,6 @@ namespace UFO_Webapplikasjon.DAL
                 newSightingRow.Datetime = innSighting.Datetime;
                 newSightingRow.Comments = innSighting.Comments;
 
-                var checkPhoneNr = await _db.Clients.FindAsync(innSighting.PhoneNr);
-                if (checkPhoneNr == null)
-                {
-                    var ClientsRow = new Clients
-                    {
-                        Firstname = innSighting.Firstname,
-                        Lastname = innSighting.Lastname,
-                        PhoneNr = innSighting.PhoneNr
-                    };
-                    newSightingRow.PhoneNr = ClientsRow;
-                }
-                else
-                {
-                    newSightingRow.PhoneNr = checkPhoneNr;
-                }
                 _db.Sightings.Add(newSightingRow);
                 await _db.SaveChangesAsync();
                 return true;
@@ -57,17 +43,12 @@ namespace UFO_Webapplikasjon.DAL
                 List<Sighting> everySightings = await _db.Sightings.Select(k => new Sighting
                 {
                     Id = k.Id,
-
                     City = k.City,
                     Country = k.Country,
                     Duration = k.Duration,
                     Datetime = k.Datetime,
                     Dateposted = k.Dateposted,
                     Comments = k.Comments,
-                    
-                    Firstname = k.PhoneNr.Firstname,
-                    Lastname = k.PhoneNr.Lastname,
-                    PhoneNr = k.PhoneNr.PhoneNr
                 }).ToListAsync();
 
                 return everySightings;
@@ -85,17 +66,12 @@ namespace UFO_Webapplikasjon.DAL
             var hentetKunde = new Sighting()
             {
                 Id = singleSighting.Id,
-
                 City = singleSighting.City,
                 Country = singleSighting.Country,
                 Duration = singleSighting.Duration,
                 Dateposted = singleSighting.Dateposted,
                 Datetime = singleSighting.Datetime,
                 Comments = singleSighting.Comments,
-
-                Firstname= singleSighting.PhoneNr.Firstname,
-                Lastname = singleSighting.PhoneNr.Lastname,
-                PhoneNr = singleSighting.PhoneNr.PhoneNr
             };
             return hentetKunde;
         }
@@ -122,24 +98,7 @@ namespace UFO_Webapplikasjon.DAL
             try
             {
                 var endreObjekt = await _db.Sightings.FindAsync(endreSighting.Id);
-                if (endreObjekt.PhoneNr.PhoneNr != endreSighting.PhoneNr)
-                {
-                    var sjekkPostnr = _db.Clients.Find(endreSighting.PhoneNr);
-                    if (sjekkPostnr == null)
-                    {
-                        var ClientsRow = new Clients
-                        {
-                            Firstname = endreSighting.Firstname,
-                            Lastname = endreSighting.Lastname,
-                            PhoneNr = endreSighting.PhoneNr
-                        };
-                        endreObjekt.PhoneNr = ClientsRow;
-                    }
-                    else
-                    {
-                        endreObjekt.PhoneNr.PhoneNr = endreSighting.PhoneNr;
-                    }
-                }
+
                 endreObjekt.City = endreSighting.City;
                 endreObjekt.Country = endreSighting.Country;
                 endreObjekt.Duration = endreSighting.Duration;

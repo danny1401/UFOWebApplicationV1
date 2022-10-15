@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace UFO_Webapplikasjon.Model
 {
     public class Sightings
-    {        
+    {
         public int Id { get; set; } // LAGE EN ID FOR BEGGE KLASSENE FOR RELASJONER?
         public string City { get; set; }
         public string Country { get; set; }
@@ -14,21 +14,6 @@ namespace UFO_Webapplikasjon.Model
         public string Dateposted { get; set; }
         public string Datetime { get; set; }
         public string Comments { get; set; }
-
-        virtual public Clients PhoneNr { get; set; }
-    }
-    
-    public class Clients
-    {
-        [Key]
-        [System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated(DatabaseGeneratedOption.None)]
-
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
-        public string PhoneNr { get; set; }
-
-        // denne listen ikke nødvendig med mindre man skal finne kundene på et gitt postnr (altså gå inn via Poststeder-collection)
-        virtual public List<Sightings> Sightings { get; set; }  
     }
 
     public class SightingContext : DbContext
@@ -43,7 +28,6 @@ namespace UFO_Webapplikasjon.Model
         }
 
         public DbSet<Sightings> Sightings { get; set; }
-        public DbSet<Clients> Clients { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

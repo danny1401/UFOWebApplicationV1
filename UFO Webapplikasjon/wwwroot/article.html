@@ -1,0 +1,41 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Et skjema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/2.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/article.js"></script>
+
+    <style>
+        span {color: red;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sighting in <span id="city">City</span>, <span id="country">Country</span></h1>
+        <div type="hidden" id="id"></div>
+        <div class="row">
+            <div id="dateCol">
+                <span id="dayByWeek">Thursday</span>,
+                <span id="dayByMonth">13</span>
+                <span id="month">October</span>
+                <span id="year">2022</span>
+            </div>
+            <div id="durationCol">
+                Duration: <span id="duration">23 minutes</span>
+            </div>
+        </div>
+        <div class="row">
+            <div id="author">
+                By <span id="lastname">Lastname</span>, <span id="firstname">Firstname</span>
+            </div>
+            <div id="commentsCol">
+                Comments:
+                <span id="comments">I found a spaceship behind my house!</span>
+            </div>
+        </div>
+        <!-- id="phoneNr" -->
+    </div>
+</body>
+</html>

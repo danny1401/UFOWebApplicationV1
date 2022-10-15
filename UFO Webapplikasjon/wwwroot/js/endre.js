@@ -5,9 +5,6 @@
     const url = "Sighting/HentEn?" + id;
     $.get(url, function (report) {
         $("#id").val(report.id); // må ha med id inn skjemaet, hidden i html
-        $("#firstname").val(report.firstname);
-        $("#lastname").val(report.lastname);
-        $("#phoneNr").val(report.phoneNr);
         $("#city").val(report.city);
         $("#country").val(report.country);
         $("#duration").val(report.duration); // Hvordan skal duration vises når vi henter den
@@ -31,9 +28,6 @@ function endreSighting() {
         dateposted: $("#dateposted").val(), // skal det være mulig å endre på utgivelsesdatoen (admin)
         datetime: $("#datetime").val(),
         comments: $("#comments").val(),
-        firstname: $("#firstname").val(),
-        lastname: $("#lastname").val(),
-        phoneNr: $("#phoneNr").val()
     };
     $.post("Sighting/Endre", report, function (OK) {
         if (OK) {
