@@ -7,31 +7,27 @@
         $("#id").val(report.id); // må ha med id inn skjemaet, hidden i html
         $("#city").val(report.city);
         $("#country").val(report.country);
-        $("#duration").val(report.duration); // Hvordan skal duration vises når vi henter den
+        $("#duration").val(report.duration);
         $("#dateposted").val(report.dateposted);
         $("#datetime").val(report.datetime);
         $("#comments").val(report.comments);
     });
 });
 
-function endreSighting() {
-    // Henter og kombinerer Streng og Select-verdi
-    let durationNumber = $("#durationNumber").val();
-    let durationUnit = $("#durationUnit").val();
-    let duration = durationNumber + durationUnit;
 
+function endreSighting() {
     const report = {
         id: $("#id").val(), // må ha med denne som ikke har blitt endret for å vite hvilken kunde som skal endres
         city: $("#city").val(),
         country: $("#country").val(),
-        duration: duration,
+        duration: $("#duration").val(),
         dateposted: $("#dateposted").val(), // skal det være mulig å endre på utgivelsesdatoen (admin)
         datetime: $("#datetime").val(),
         comments: $("#comments").val(),
     };
     $.post("Sighting/Endre", report, function (OK) {
         if (OK) {
-            window.location.href = 'index.html';
+            window.location.href = './index.html';
         }
         else {
             $("#feil").html("Feil i db - prøv igjen senere");

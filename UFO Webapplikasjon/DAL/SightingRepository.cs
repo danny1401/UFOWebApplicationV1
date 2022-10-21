@@ -59,7 +59,22 @@ namespace UFO_Webapplikasjon.DAL
             }
         }
 
+        public async Task<bool> Slett(int id)
+        {
+            try
+            {
+                Sightings singleDBSighting = await _db.Sightings.FindAsync(id);
+                _db.Sightings.Remove(singleDBSighting);
+                await _db.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
+        
         public async Task<Sighting> HentEn(int Id)
         {
             Sightings singleSighting = await _db.Sightings.FindAsync(Id);
@@ -77,36 +92,18 @@ namespace UFO_Webapplikasjon.DAL
         }
 
 
-        public async Task<bool> Slett(int id)
-        {
-            try
-            {
-                Sightings singleDBSighting = await _db.Sightings.FindAsync(id);
-                _db.Sightings.Remove(singleDBSighting);
-                await _db.SaveChangesAsync();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-
         public async Task<bool> Endre(Sighting endreSighting)
         {
             try
             {
                 var endreObjekt = await _db.Sightings.FindAsync(endreSighting.Id);
-
                 endreObjekt.City = endreSighting.City;
                 endreObjekt.Country = endreSighting.Country;
                 endreObjekt.Duration = endreSighting.Duration;
                 endreObjekt.Dateposted = endreSighting.Dateposted;
                 endreObjekt.Datetime = endreSighting.Datetime;
                 endreObjekt.Comments = endreSighting.Comments;
-
-        await _db.SaveChangesAsync();
+                await _db.SaveChangesAsync();
             }
             catch
             {

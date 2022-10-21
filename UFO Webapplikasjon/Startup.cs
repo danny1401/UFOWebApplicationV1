@@ -13,7 +13,7 @@ namespace UFO_Webapplikasjon
             services.AddControllers();
             services.AddDbContext<SightingContext>(options =>
                             options.UseSqlite("Data Source=Sighting.db"));
-            services.AddScoped<InSightingRepository, DAL.SightingRepository>();
+            services.AddScoped<InSightingRepository, SightingRepository>();
         }
     
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -3,7 +3,7 @@
 });
 
 function hentAlleSightings() {
-    $.get("Sighting/hentAlle", function (reports) {
+    $.get("sighting/hentAlle", function (reports) {
         formaterSightings(reports);
     });
 }
