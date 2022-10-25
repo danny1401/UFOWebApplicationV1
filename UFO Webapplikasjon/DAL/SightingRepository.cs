@@ -1,5 +1,6 @@
 ﻿using UFO_Webapplikasjon.Model;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace UFO_Webapplikasjon.DAL
 {

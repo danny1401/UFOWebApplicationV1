@@ -1,33 +1,42 @@
 ﻿$(function(){
-    hentAlleSightings();
+    countSightings();
 });
 
-function hentAlleSightings() {
-    $.get("sighting/hentAlle", function (reports) {
-        formaterSightings(reports);
-    });
-}
 
-function formaterSightings(reports) {
-    let ut = "<table class='table table-striped'>" +
-        "<tr>" +
-        "<th>City</th><th>Country</th><th>Duration</th><th>Date Posted</th><th>Date/Time</th><th>Comments</th>" +
-        "<th></th><th></th>" +
-        "</tr>";
-    for (let report of reports) {
-        ut += "<tr>" + 
-            "<td>" + report.city + "</td>" +
-            "<td>" + report.country + "</td>" +
-            "<td>" + report.duration + "</td>" +
-            "<td>" + report.dateposted + "</td>" +
-            "<td>" + report.datetime + "</td>" +
-            "<td>" + report.comments + "</td>" +
-            "<td> <a class='btn btn-primary' href='endre.html?id="+report.id+"'>Endre</a></td>"+
-            "<td> <button class='btn btn-danger' onclick='slettSighting("+report.id+")'>Slett</button></td>"+
-            "</tr>";
+function countSightings() {
+    let count = 0;
+
+    $.get("sighting/hentAlle", function (reports) {
+        for (let report of reports) {
+            count++;
+        }
+        let ut = count;
+        $("#count").html(ut);
+    });
+    let totalCount = $("#count").val();
+    console.log(totalCount);
+
+    function generateRandom(maxLimit = count) {
+        let rand = Math.random() * maxLimit;
+        rand = Math.floor(rand);
+        return rand;
     }
-    ut += "</table>";
-    $("#reports").html(ut);
+
+    let randomId = 0;
+    generateRandom(randomId);
+    console.log(randomId);
+
+    /*
+    const url = "Sighting/HentEn?" + randomId;
+    $.get(url, function (report) {
+        $("#id").html(report.id); // må ha med id inn skjemaet, hidden i html
+        $("#city").html(report.city);
+        $("#country").html(report.country);
+        $("#duration").html(report.duration);
+        $("#dateposted").html(report.dateposted);
+        $("#datetime").html(report.datetime);
+        $("#comments").html(report.comments);
+    });*/
 }
 
 function slettSighting(id) {

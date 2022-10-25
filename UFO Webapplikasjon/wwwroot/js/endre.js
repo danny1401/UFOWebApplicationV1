@@ -1,5 +1,6 @@
 ﻿$(function () {
     // hent kunden med kunde-id fra url og vis denne i skjemaet
+    
     const id = window.location.search.substring(1);
 
     const url = "Sighting/HentEn?" + id;
