@@ -9,24 +9,25 @@ function hentAlleSightings() {
 }
 
 function formaterSightings(reports) {
-    let ut = "<table class='table table-striped'>" +
-        "<tr>" +
-        "<th>City</th><th>Country</th><th>Duration</th><th>Date Posted</th><th>Date/Time</th><th>Comments</th>" +
-        "<th></th><th></th>" +
-        "</tr>";
+    let ut = "<div class='container boxO'>";
+
     for (let report of reports) {
-        ut += "<tr>" + 
-            "<td>" + report.city + "</td>" +
-            "<td>" + report.country + "</td>" +
-            "<td>" + report.duration + "</td>" +
-            "<td>" + report.dateposted + "</td>" +
-            "<td>" + report.datetime + "</td>" +
-            "<td>" + report.comments + "</td>" +
+        ut += "<div class='row observation'>" +
+            "<div class='col-3 dateF'>" +
+            "<div>Published Date: " + report.dateposted + "</div>" +
+            "<div>Date/Time: " + report.datetime + "</div>" +
+            "<div>Duration: " + report.duration + "</div>" +
+                "</div>" +
+            "<div class='col-9 commentF'>" +
+                "<div class='titleF'><h3><span class='fl'>" + report.city + "</span>, " + report.country + "</h3></div>" +
+                "<div class='textF'><b>Comments about the observation:</b><br />" + report.comments + "</div>" +
+            "</div></div>";
+            /*
             "<td> <a class='btn btn-primary' href='endre.html?id="+report.id+"'>Endre</a></td>"+
             "<td> <button class='btn btn-danger' onclick='slettSighting("+report.id+")'>Slett</button></td>"+
-            "</tr>";
+            */
     }
-    ut += "</table>";
+    ut += "</div>";
     $("#reports").html(ut);
 }
 

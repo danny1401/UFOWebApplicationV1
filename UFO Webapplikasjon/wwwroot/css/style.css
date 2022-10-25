@@ -1,0 +1,282 @@
+body, html {
+    overflow-x: hidden; /* fjerne horisontal scrolling */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #293e70;
+    color: white;
+}
+
+a {
+    color: wheat;
+    text-decoration: none;
+}
+    a:hover, a:active {
+        color: #eaba62;
+        text-decoration: none;
+    }
+
+.container-fluid {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/*--------------------------------------------MENU------------------------------------------------*/
+.header {
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+    background-color: #141f38;
+    padding: 20px 15px;
+    border-bottom: 3px solid white;
+}
+
+.header a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 11px;
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 22px;
+    border-radius: 5px;
+}
+    .header a.logo {
+        font-size: 33px;
+        font-weight: bold;
+    }
+    .header a:hover {
+        color: wheat;
+    }
+    .header a.active {
+        color: wheat;
+        text-decoration: underline;
+    }
+
+.header-right {
+    float: right;
+}
+
+@media screen and (max-width: 810px) {
+    .header a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .header-right {
+        float: none;
+    }
+}
+
+/*-------------------------------------------IMAGES-----------------------------------------------*/
+/*
+/* The dots/bullets/indicators /
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+/* Fading animation /
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+*/
+/*------------------------------------------ABOUT-----------------------------------------------*/
+.about {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    background-color: #293e70;
+    background: linear-gradient(to top, #1b294b 0%, #293e70 100%);
+    text-align: center;
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
+    padding: 60px 25vw;
+}
+.titleA {
+    font-weight: 600;
+}
+.lineA {
+    border-top: 1px solid white;
+    padding-bottom: 10px;
+}
+.textA {
+    font-size: 20px;
+    line-height: 1.5;
+}
+.buttonA {
+    text-decoration: none; 
+    font-size: 16px;
+    padding-top: 15px;
+}
+
+/*------------------------------------------ARTICLE PREVIEW-----------------------------------------------*/
+.previewMain {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: white;
+}
+/*------------------------------------------COUNTER-----------------------------------------------*/
+.counter {
+    background-color: #1b294b;
+    padding: 100px 0;
+    font-size: 30px;
+}
+.titleC {
+    text-align: center;
+    font-size: 50px;
+    color: wheat;
+}
+.textC {
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
+
+/*------------------------------------------PREVIEW-----------------------------------------------*/
+.preview {
+    border-left: 3px solid white;
+}
+.article {
+    border-bottom: 2px solid white;
+}
+.date {
+    border-right: 2px solid white;
+    padding: 15px 25px;
+    line-height: 2.8;
+    background-color: #1b294b;
+}
+.fl {display: inline-block;}
+    .fl:first-letter {text-transform: uppercase;}
+
+.comment {
+    padding: 20px 60px 20px 35px;
+    background-color: #1b294b;
+}
+.titleP {color: antiquewhite;}
+.textP {
+    line-height: 1.7;
+}
+
+.seemore {
+    background-color: #1b294b;
+    border: none;
+    padding: 14px 0px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+}
+a.seemore:hover, a.seemore:active {
+    color: wheat;
+    background-color: #22345e;
+    text-decoration: none;
+}
+
+/*------------------------------------------FOOTER-----------------------------------------------*/
+.form-control {
+    border-color: #545454;
+}
+    .form-control:focus {
+        background: #051330;
+    }
+
+footer {
+    background: linear-gradient(to bottom, #1b294b 0%, #293e70 100%);
+    background-color: #293e70;
+    border-top: 3px solid white;
+}
+
+
+
+/*------------------------------------------FEED (article.js)-----------------------------------------------*/
+.feed {
+    margin-top: 100px;
+    padding: 20px 250px;
+}
+.description {
+    text-align: center;
+}
+
+.observation {
+    margin-bottom: 20px;
+    border: 2px solid wheat;
+}
+.dateF {
+    border-right: 2px solid wheat;
+    padding: 20px 30px;
+    line-height: 3.2;
+    background-color: #1b294b;
+    font-size: 14px;
+}
+.commentF {
+    padding: 22px 60px 22px 35px;
+    background-color: #1b294b;
+}
+.titleF {
+    color: antiquewhite;
+}
+.textF {
+    line-height: 1.6;
+    font-size: 14px;
+}
+.button {
+    background-color: #1b294b;
+    border: none;
+    padding: 14px 0px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+
+/*------------------------------------------CREATE / UPDATE-----------------------------------------------*/
+.register {
+    margin-top: 100px;
+    padding: 20px 250px;
+}
+.titleR {
+    text-align: center;
+}
+input.form-control {
+    width: 300px; 
+    height: 40px;
+}
+.form-control:focus, .form-control:after {
+    background-color: white;
+    color: black;
+}
+.duration {
+    margin: 0;
+}
+.durationNumber {
+    margin-right: 10px;
+}
+.durationUnit {
+    width: 160px;
+    height: 40px;
+    background-color: white;
+    color: black;
+}

@@ -1,39 +1,143 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
     <script src="js/index.js"></script>
- </head>
+</head>
 <body>
-    <div class="container">
-        <h1>Her er innleggene:</h1>
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-        <div id="reports"></div>
-        <a href="lagre.html" class="btn btn-primary">Lagre ny rapport</a>
+    <!--MENU-->
+    <div class="header">
+        <a href="./index.html" class="logo">UFO OBSERVATIONS</a>
+        <div class="header-right">
+            <a class="active" href="./index.html">Home</a>
+            <a href="./article.html">Feed</a>
+            <a href="./lagre.html">Submit a report</a>
+            <a href="./aboutus.html">About us</a>
+        </div>
     </div>
 
-    <script>
-        function myFunction() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("reports");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[0];
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-    </script>
+    <div class="container-fluid">
+        <!--SLIDESHOW-->
+        <div class="row mainimage">
+            <div class="col">
+                <img src="./images/bk.png" width="100%" height="700px" />
+            </div>
+        </div>
+
+        <!--ABOUT US-->
+        <div class="row about">
+            <div class="col">
+                <h2 class="titleA">About us</h2>
+                <div class="lineA"></div>
+
+                <div class="textA">
+                    The UFO website has been updated with the posting of 657 new sighting reports
+                    We are a UfO detector, which shows "evidence" in the form of posts of UFOs through images/videos and descriptive texts.
+                    <br />
+                    What happened and what was seen etc.
+                    <i style="color:orange">I would love to have more text here</i>
+                </div>
+
+                <div class="buttonA">
+                    <a href="article.html">
+                        <span class="toggle_text">show more</span>
+                        <span class="arrow"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!--ARTICLE PREVIEW-->
+        <div class="row previewMain">
+            <!--COUNTER-->
+            <div class="col-3 counter">
+                <h1 class="titleC">Articles</h1>
+                <p class="textC">+250</p>
+            </div>
+
+            <!--ARTICLES-->
+            <div class="col-9 preview">
+                <div class="row article">
+                    <div class="col-3 date">
+                        <div>Published Date: 4/27/2004</div>
+                        <div>Date/Time: 10:10</div>
+                        <div>Duration: 45 min </div>
+                    </div>
+                    <div class="col-9 comment">
+                        <div class="titleP">
+                            <h3>Norway, Oslo</h3>
+                        </div>
+                        <div class="textP">
+                            <b>Comments about the observation:</b>
+                            <br />
+                            Hessdalsfenomenet Det har gått over en mannsalder siden folket på Aspåsgårdene gik
+                            Hessdalsfenomenet Det har gått over en mannsalder siden folket på Aspåsgårdene gik
+                            Hessdalsfenomenet Det har gått over en mannsalder siden folket på Aspåsgårdene gik
+                            Hessdalsfenomenet Det har gått over en mannsalder siden folket på Aspåsgårdene gik
+                            Hessdalsfenomenet Det har gått over en mannsalder siden folket på Aspåsgårdene gik
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row article">
+                    <div class="col-3 date">
+                        <div>Published Date: 4/27/2004</div>
+                        <div>Date/Time: 10:10</div>
+                        <div>Duration: 45 min </div>
+                    </div>
+                    <div class="col-9 comment">
+                        <div class="titleP">
+                            <h3>Norway, Oslo</h3>
+                        </div>
+                        <div class="textP">
+                            <b>Comments about the observation:</b>
+                            <br />
+                            Hessdalsfenomenet Det har gått over en mannsalder siden folket på Aspåsgårdene gik
+                            Hessdalsfenomenet Det har gått over en mannsalder siden folket på Aspåsgårdene gik
+                            Hessdalsfenomenet Det har gått over en mannsalder siden folket på Aspåsgårdene gik
+                            Hessdalsfenomenet Det har gått over en mannsalder siden folket på Aspåsgårdene gik
+                            Hessdalsfenomenet Det har gått over en mannsalder siden folket på Aspåsgårdene gik
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <a href='article.html' class="seemore">see more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--FOOTER-->
+    <footer class="footer">
+        <div class="container py-4">
+            <div class="row gy-4 gx-9">
+                <div class="col-lg-4 col-md-6">
+                    <h5 style="font-size: 25px; color: white;"> UFO</h5>
+                    <p style="font-size: 12px; color:wheat;">write little about the website. hva det handler om, hva kan man se og alt om nettsiden, write little about the website. hva det handler om, hva kan man se og alt om nettsidenwrite little about the website. hva det handler om, hva kan man se og alt om nettsidenwrite little about the website. hva det handler om, hva kan man se og alt om nettsidenwrite little about the website. hva det handler om, hva kan man se og alt om nettsiden</p>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 style="font-size: 16px; color: white;">Quick links</h5>
+                    <ul style="font-size: 12px; color: white;">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">file report</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 ">
+                    <h5 style="font-size: 16px;">Newsletter <i style="color:red">FOOTER NEEDS A FIX</i></h5>
+                    <p style="font-size: 12px;"> Do you see any Unidentified Flying Object (UFO) please Reports</p>
+                    <form action="#">
+                        <button class="btn btn-primary" id="button-addon2" type="button"> File report </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
