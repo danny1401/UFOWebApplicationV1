@@ -18,14 +18,17 @@ function formaterSightings(reports) {
             "<div>Date/Time: " + report.datetime + "</div>" +
             "<div>Duration: " + report.duration + "</div>" +
                 "</div>" +
-            "<div class='col-9 commentF'>" +
-                "<div class='titleF'><h3><span class='fl'>" + report.city + "</span>, " + report.country + "</h3></div>" +
-                "<div class='textF'><b>Comments about the observation:</b><br />" + report.comments + "</div>" +
+            "<div class='col-9 commentF'><div class='row'>" +
+            "<div class='col-8 titleP'><h3>" +
+                "<span class='fl'> " + report.city + "</span >, <span class='fl'>" + report.country + "</span>" +
+            "</h3></div>" +
+            "<div class='col-4'><div class='row'>" +
+            "<a class='col-5 btnCrud' id='update1' href='endre.html?id=" + report.id + "'>Update</a>" +
+            "<div class='col-1'></div>" +
+            "<button class='col-5 btnCrud' onclick='slettSighting(" + report.id + ")'>Delete</button>" +
+            "</div></div></div>" +
+                "<div class='textF'><b>The observation:</b><br />" + report.comments + "</div>" +
             "</div></div>";
-            /*
-            "<td> <a class='btn btn-primary' href='endre.html?id="+report.id+"'>Endre</a></td>"+
-            "<td> <button class='btn btn-danger' onclick='slettSighting("+report.id+")'>Slett</button></td>"+
-            */
     }
     ut += "</div>";
     $("#reports").html(ut);
@@ -35,7 +38,7 @@ function slettSighting(id) {
     const url = "Sighting/Slett?id="+id;
     $.get(url, function (OK) {
         if (OK) {
-            window.location.href = 'index.html';
+            window.location.href = 'article.html';
         }
         else {
             $("#feil").html("Feil i db - prøv igjen senere");

@@ -179,6 +179,20 @@ a {
 .textP {
     line-height: 1.7;
 }
+.btnCrud {
+    background-color: #293e70;
+    border: 1px solid wheat;
+    color: wheat;
+    margin: 1px 0px;
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    padding: 2px 0;
+}
+    .btnCrud:hover, .btnCrud:after {
+        background-color: #304982;
+        color: wheat;
+    }
 
 .seemore {
     background-color: #1b294b;
@@ -241,15 +255,6 @@ footer {
     line-height: 1.6;
     font-size: 14px;
 }
-.button {
-    background-color: #1b294b;
-    border: none;
-    padding: 14px 0px;
-    font-size: 16px;
-    cursor: pointer;
-    text-align: center;
-}
-
 
 
 /*------------------------------------------CREATE / UPDATE-----------------------------------------------*/

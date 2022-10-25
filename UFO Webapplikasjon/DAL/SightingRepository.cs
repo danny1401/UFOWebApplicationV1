@@ -92,7 +92,6 @@ namespace UFO_Webapplikasjon.DAL
             return hentetKunde;
         }
 
-
         public async Task<bool> Endre(Sighting endreSighting)
         {
             try

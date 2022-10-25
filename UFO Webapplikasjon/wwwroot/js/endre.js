@@ -28,7 +28,7 @@ function endreSighting() {
     };
     $.post("Sighting/Endre", report, function (OK) {
         if (OK) {
-            window.location.href = './index.html';
+            window.location.href = './article.html';
         }
         else {
             $("#feil").html("Feil i db - prøv igjen senere");
