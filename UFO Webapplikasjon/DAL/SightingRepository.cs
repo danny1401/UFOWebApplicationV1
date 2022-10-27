@@ -1,6 +1,7 @@
 ﻿using UFO_Webapplikasjon.Model;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
+using Microsoft.AspNetCore.Mvc;
 
 namespace UFO_Webapplikasjon.DAL
 {
@@ -111,5 +112,6 @@ namespace UFO_Webapplikasjon.DAL
             }
             return true;
         }
+
     }
 }
