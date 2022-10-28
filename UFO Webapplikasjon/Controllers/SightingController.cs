@@ -50,14 +50,14 @@ namespace UFO_Webapplikasjon.Controllers
             return await _db.Delete(id);
         }
 
-        public async Task<Sighting> HentEn(int id)
+        public async Task<Sighting> ReadOne(int id)
         {
-            return await _db.HentEn(id);
+            return await _db.ReadOne(id);
         }
 
-        public async Task<bool> Endre(Sighting endreSighting)
+        public async Task<bool> Update(Sighting updateSighting)
         {
-            return await _db.Endre(endreSighting);
+            return await _db.Update(updateSighting);
         }
     }
 }

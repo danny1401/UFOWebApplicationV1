@@ -3,7 +3,6 @@
 });
 
 function readAllSightings() {
-    $("#idDesc").html();
     $.get("sighting/readAll", function (reports) {
         formaterSightings(reports);
     });
@@ -18,7 +17,6 @@ function sortByIdDesc() {
     $("#idDesc").hide();
 }
 function sortByCountryASC() {
-    $("#countryDesc").html();
     $.get("sighting/readCountryAsc", function (reports) {
         formaterSightings(reports);
     });
@@ -26,7 +24,6 @@ function sortByCountryASC() {
     $("#countryDesc").show();
 }
 function sortByCountryDESC() {
-    $("#countryAsc").html();
     $.get("sighting/readCountryDesc", function (reports) {
         formaterSightings(reports);
     });
@@ -34,7 +31,6 @@ function sortByCountryDESC() {
     $("#countryDesc").hide();
 }
 function sortByCityASC() {
-    $("#cityDesc").html();
     $.get("sighting/readCityAsc", function (reports) {
         formaterSightings(reports);
     });
@@ -42,7 +38,6 @@ function sortByCityASC() {
     $("#cityDesc").show();
 }
 function sortByCityDESC() {
-    $("#cityAsc").html();
     $.get("sighting/readCityDesc", function (reports) {
         formaterSightings(reports);
     });
@@ -69,7 +64,7 @@ function formaterSightings(reports) {
             "<div>Date/Time: " + report.datetime + "</div>" +
             "<div>Duration: " + report.duration + "</div>" +
             "</div><div class='col-5 btngroup'>" +
-            "<a class='btnCrud' id='update1' href='endre.html?id=" + report.id + "'>Update</a>" +
+            "<a class='btnCrud' id='update1' href='update.html?id=" + report.id + "'>Update</a>" +
             "<div></div>" +
             "<button class='btnCrud' onclick='deleteSighting(" + report.id + ")'>Delete</button>" +
             "</div></div></div>" +
@@ -79,7 +74,7 @@ function formaterSightings(reports) {
                 "<span class='fl'> " + report.city + "</span >, <span class='fl'>" + report.country + "</span>" +
             "</h3></div>" +
             "<div class='col-5 visible'><div class='row'>" +
-            "<a class='col-5 btnCrud' id='update1' href='endre.html?id=" + report.id + "'>Update</a>" +
+            "<a class='col-5 btnCrud' id='update1' href='update.html?id=" + report.id + "'>Update</a>" +
             "<div class='col-1'></div>" +
             "<button class='col-5 btnCrud' onclick='deleteSighting(" + report.id + ")'>Delete</button>" +
             "</div></div></div>" +
@@ -92,7 +87,7 @@ function formaterSightings(reports) {
 
 
 function deleteSighting(id) {
-    const url = "Sighting/Read?id="+id;
+    const url = "Sighting/delete?id="+id;
     $.get(url, function (OK) {
         if (OK) {
             window.location.href = 'article.html';

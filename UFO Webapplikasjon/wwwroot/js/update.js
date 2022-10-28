@@ -3,7 +3,7 @@
     
     const id = window.location.search.substring(1);
 
-    const url = "Sighting/HentEn?" + id;
+    const url = "Sighting/readOne?" + id;
     $.get(url, function (report) {
         $("#id").val(report.id); // må ha med id inn skjemaet, hidden i html
         $("#city").val(report.city);
@@ -16,7 +16,7 @@
 });
 
 
-function endreSighting() {
+function updateSighting() {
     const report = {
         id: $("#id").val(), // må ha med denne som ikke har blitt endret for å vite hvilken kunde som skal endres
         city: $("#city").val(),
@@ -26,7 +26,7 @@ function endreSighting() {
         datetime: $("#datetime").val(),
         comments: $("#comments").val(),
     };
-    $.post("Sighting/Endre", report, function (OK) {
+    $.post("Sighting/update", report, function (OK) {
         if (OK) {
             window.location.href = './article.html';
         }

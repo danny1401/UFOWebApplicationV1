@@ -3,7 +3,7 @@
 });
 
 function latestSightings() {
-    $.get("sighting/ReadAll", function (reports) {
+    $.get("sighting/readAll", function (reports) {
         countTotal(reports);
     });
 }
@@ -30,7 +30,7 @@ function countTotal(reports) {
     console.log(secondLatestPosition);
 
     // Henter de siste observasjonene
-    const url1 = "Sighting/HentEn?id=" + latestPosition;
+    const url1 = "Sighting/readOne?id=" + latestPosition;
     $.get(url1, function (report1) {
         $("#id1").html(report1.id);
         $("#city1").html(report1.city);
@@ -44,7 +44,7 @@ function countTotal(reports) {
         $("#dateposted1v1").html(report1.dateposted);
         $("#datetime1v1").html(report1.datetime);
     });
-    const url2 = "Sighting/HentEn?id=" + secondLatestPosition;
+    const url2 = "Sighting/readOne?id=" + secondLatestPosition;
     $.get(url2, function (report2) {
         $("#id2").html(report2.id);
         $("#city2").html(report2.city);
@@ -58,11 +58,11 @@ function countTotal(reports) {
         $("#dateposted2v2").html(report2.dateposted);
         $("#datetime2v2").html(report2.datetime);
     });
-    $("#update2").attr('href', "./endre.html?id=" + secondLatestPosition);
+    $("#update2").attr('href', "./update.html?id=" + secondLatestPosition);
 }
 
 function deleteSighting(id) {
-    const url = "Sighting/Delete?id="+id;
+    const url = "Sighting/delete?id="+id;
     $.get(url, function (OK) {
         if (OK) {
             window.location.href = 'index.html';

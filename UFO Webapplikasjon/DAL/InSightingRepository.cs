@@ -13,7 +13,7 @@ namespace UFO_Webapplikasjon.DAL
         Task<List<Sighting>> ReadCityAsc();
         Task<List<Sighting>> ReadCityDesc();
         Task<bool> Delete(int id);
-        Task<Sighting> HentEn(int id);
-        Task<bool> Endre(Sighting endreSighting);
+        Task<Sighting> ReadOne(int id);
+        Task<bool> Update(Sighting updateSighting);
     }
 }

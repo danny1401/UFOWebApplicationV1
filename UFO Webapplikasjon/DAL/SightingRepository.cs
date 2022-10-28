@@ -187,7 +187,7 @@ namespace UFO_Webapplikasjon.DAL
         }
 
         
-        public async Task<Sighting> HentEn(int Id)
+        public async Task<Sighting> ReadOne(int Id)
         {
             Sightings singleSighting = await _db.Sightings.FindAsync(Id);
             var hentetKunde = new Sighting()
@@ -203,17 +203,17 @@ namespace UFO_Webapplikasjon.DAL
             return hentetKunde;
         }
 
-        public async Task<bool> Endre(Sighting endreSighting)
+        public async Task<bool> Update(Sighting updateSighting)
         {
             try
             {
-                var endreObjekt = await _db.Sightings.FindAsync(endreSighting.Id);
-                endreObjekt.City = endreSighting.City;
-                endreObjekt.Country = endreSighting.Country;
-                endreObjekt.Duration = endreSighting.Duration;
-                endreObjekt.Dateposted = endreSighting.Dateposted;
-                endreObjekt.Datetime = endreSighting.Datetime;
-                endreObjekt.Comments = endreSighting.Comments;
+                var updateObjekt = await _db.Sightings.FindAsync(updateSighting.Id);
+                updateObjekt.City = updateSighting.City;
+                updateObjekt.Country = updateSighting.Country;
+                updateObjekt.Duration = updateSighting.Duration;
+                updateObjekt.Dateposted = updateSighting.Dateposted;
+                updateObjekt.Datetime = updateSighting.Datetime;
+                updateObjekt.Comments = updateSighting.Comments;
                 await _db.SaveChangesAsync();
             }
             catch

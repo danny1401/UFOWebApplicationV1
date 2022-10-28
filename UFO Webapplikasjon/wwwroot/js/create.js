@@ -1,4 +1,4 @@
-﻿function lagreSighting() {
+﻿function createSighting() {
     // Henter nåværende dato for når lagringsknappen trykkes
     let date = new Date();
     // Formaterer datoen til mm/dd/yyyy
@@ -17,7 +17,7 @@
         datetime : $("#datetime").val(),
         comments : $("#comments").val(),
     }
-    const url = "Sighting/Lagre";
+    const url = "Sighting/create";
     $.post(url, report, function (OK) {
         if (OK) {
             window.location.href = 'index.html';

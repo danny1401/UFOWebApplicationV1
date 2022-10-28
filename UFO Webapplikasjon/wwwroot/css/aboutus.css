@@ -58,18 +58,6 @@ h1 {
     text-align: center;
 }
 
-.row {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-}
-
-    .row .col {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
 
 .events .row {
     margin-top: 50px;
@@ -84,10 +72,6 @@ h4 {
     font-size: 3vmin;
     color: darkblue;
     margin: 20px auto;
-}
-
-p {
-    color: black;
 }
 
 .events .ctn {
@@ -132,13 +116,6 @@ p {
 
 
 /*teams*/
-.container {
-    text-align: center;
-    background: #ffffff;
-}
-
-
-
 .header {
     padding-top: 30px;
     color: white;
@@ -150,7 +127,6 @@ p {
     .header h1 {
         color: black;
     }
-
 
 .ourTeam {
     max-width: 1200px;

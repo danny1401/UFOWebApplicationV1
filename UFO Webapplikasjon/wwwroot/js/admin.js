@@ -22,7 +22,7 @@ function formaterSightings(reports) {
             "<td>" + report.dateposted + "</td>" +
             "<td>" + report.datetime + "</td>" +
             "<td>" + report.comments + "</td>" +
-            "<td> <a class='btn btn-primary' href='endre.html?id=" + report.id + "'>Endre</a></td>" +
+            "<td> <a class='btn btn-primary' href='update.html?id=" + report.id + "'>Update</a></td>" +
             "<td> <button class='btn btn-danger' onclick='deleteSighting(" + report.id + ")'>Delete</button></td>" +
             "</tr>";
     }

@@ -16,7 +16,7 @@
         <div class="header-right">
             <a class="active" href="./index.html">Home</a>
             <a href="./article.html">Feed</a>
-            <a href="./lagre.html">Submit a report</a>
+            <a href="./create.html">Submit a report</a>
             <a href="./aboutus.html">About us</a>
         </div>
     </div>
@@ -24,7 +24,7 @@
     <div class="container-fluid">
         <div class="row mainimage">
             <div class="col">
-                <img class="mainbackground" src="./images/UFO1.jpg" "  />
+                <img class="mainbackground" src="./images/UFO1.jpg" />
             </div>
         </div>
 
@@ -84,7 +84,7 @@
                                 <div>Duration: <span id="duration1v1"></span></div>
                             </div>
                             <div class="col-5 btngroup">
-                                <a class="btnCrud" id="update1" href="endre.html?id=">Update</a>
+                                <a class="btnCrud" id="update1" href="update.html?id=">Update</a>
                                 <div></div>
                                 <button class="btnCrud" id="delete1">Delete</button>
                             </div>
@@ -126,7 +126,7 @@
                                 <div>Duration: <span id="duration2v2"></span></div>
                             </div>
                             <div class="col-5 btngroup">
-                                <a class="btnCrud" id="update2" href="endre.html?id=">Update</a>
+                                <a class="btnCrud" id="update2" href="update.html?id=">Update</a>
                                 <div></div>
                                 <button class="btnCrud" id="delete2">Delete</button>
                             </div>
@@ -141,7 +141,23 @@
                                 <div class="row">
                                     <a class="col-5 btnCrud visible" id="update2" href="">Update</a>
                                     <div class="col-1"></div>
-                                    <a class="col-5 btnCrud visible" id="delete2" href="">Delete</a>
+                                    <a class="col-5 btnCrud" id="delete2" onclick="document.getElementById('id01').style.display='block'">Delete</a>
+
+                                    <div id="id01" class="modal">
+                                        <form class="modal-content">
+                                            <div class="container deletebox">
+                                                <h1>Delete Sighting</h1>
+                                                <br />
+                                                <h3 style="color: dimgrey">Are you sure you want to delete this sighting?</h3>
+                                                <br />
+                                                <div class="clearfix">
+                                                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                                                    <button type="button" onclick="" class="deletebtn">Delete</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -158,35 +174,33 @@
             </div>
         </div>
     </div>
+    <br /><br />
 
-    <!--FOOTER-->
-    <footer>
-        <div class="row footerSection">
-            <div class="col-4 left">
-                <div class="row">
-                    <h2 class="footerTitle">UFO Observations</h2>
-                    UFO Observations is a sighting website for any unexplained moving object observed in the sky, especially one assumed by some observers to be of extraterrestrial origin. Here you can sight or report What happened and what was seen etc.
+    <!-- FOOTER -->
+    <footer class="footer" style="background-color: #182747; ">
+        <div class="container">
+            <div class="row gy-4 gx-9">
+                <div class="col-lg-4 col-md-6 left">
+                    <h3 class="footerTitle">UFO Observations</h3>
+                    <p>
+                        UFO Observations is a sighting website for any unexplained moving object observed in the sky, especially one assumed by some observers to be of extraterrestrial origin.
+                        Here you can sight or report What happened and what was seen etc.
+                    </p>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="row mid">
-                    <h2 class="footerTitle">Contact Information</h2>
-                    UFO Observations AS
+                <div class="col-lg-4 col-md-6 mid">
+                    <h3 class="footerTitle">Contact Information</h3>
+                    <span>UFO Observations AS</span>
                     <br />
-                    Org.Nr 666 356 106
+                    <span>Org.Nr 666 356 106</span>
                     <br />
-                    <span style="padding:0;">E-mail: <a href="mailto:support@reset.com">support@reset.com</a></span>
+                    <span>E-mail: <a href="mailto:support@reset.com">support@reset.com</a></span>
                     <br />
-                    <span style="padding:0;">Telephone: <a href="tel:+47 123 45 678">+47 123 45 678</a></span>
-                    <br />
+                    <span>Telephone: <a href="tel:+47 123 45 678">+47 123 45 678</a></span>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="row right">
-                    <h2 class="footerTitle">File a Report</h2>
-                    If you have seen any Unidentified Flying Object (UFO),
-                    <br />
-                    please reports to us!
+                <div class="col-lg-4 col-md-6  right">
+                    <h3 class="footerTitle">Submit a Report</h3>
+                    If you have seen any UFOs,
+                    please report to us!
                     <br />
                     <br />
                     <a href='/create.html' class="filebutton">Submit a Report</a>
@@ -194,8 +208,19 @@
             </div>
         </div>
         <div class="row copyright">
-            <h3>2022 &copy; <b>UFO OBSERVATIONS</b></h3>
+            <h5>2022 &copy; <b>UFO OBSERVATIONS</b></h5>
         </div>
     </footer>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>

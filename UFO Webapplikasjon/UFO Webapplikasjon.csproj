@@ -21,10 +21,10 @@
   <ItemGroup>
     <None Include="wwwroot\images\double-arrow-down-1.png" />
     <None Include="wwwroot\js\article.js" />
-    <None Include="wwwroot\js\endre.js" />
+    <None Include="wwwroot\js\update.js" />
     <None Include="wwwroot\js\admin.js" />
     <None Include="wwwroot\js\index.js" />
-    <None Include="wwwroot\js\lagre.js" />
+    <None Include="wwwroot\js\create.js" />
   </ItemGroup>
 
   <ItemGroup>
