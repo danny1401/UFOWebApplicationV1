@@ -14,7 +14,7 @@ namespace UFO_Webapplikasjon.DAL
             _db = db;
         }
 
-        public async Task<bool> Lagre(Sighting innSighting)
+        public async Task<bool> Create(Sighting innSighting)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace UFO_Webapplikasjon.DAL
         }
 
 
-        public async Task<List<Sighting>?> HentAlle()
+        public async Task<List<Sighting>?> ReadAll()
         {
             try
             {
@@ -60,8 +60,118 @@ namespace UFO_Webapplikasjon.DAL
                 return null;
             }
         }
+        public async Task<List<Sighting>?> ReadIdDesc()
+        {
+            try
+            {
+                List<Sighting> everySightings = await _db.Sightings.Select(k => new Sighting
+                {
+                    Id = k.Id,
+                    City = k.City,
+                    Country = k.Country,
+                    Duration = k.Duration,
+                    Datetime = k.Datetime,
+                    Dateposted = k.Dateposted,
+                    Comments = k.Comments,
+                }).OrderByDescending(x => x.Id).ToListAsync();
 
-        public async Task<bool> Slett(int id)
+                return everySightings;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public async Task<List<Sighting>?> ReadCountryAsc()
+        {
+            try
+            {
+                List<Sighting> everySightings = await _db.Sightings.Select(k => new Sighting
+                {
+                    Id = k.Id,
+                    City = k.City,
+                    Country = k.Country,
+                    Duration = k.Duration,
+                    Datetime = k.Datetime,
+                    Dateposted = k.Dateposted,
+                    Comments = k.Comments,
+                }).OrderBy(x => x.Country).ToListAsync();
+
+                return everySightings;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public async Task<List<Sighting>?> ReadCountryDesc()
+        {
+            try
+            {
+                List<Sighting> everySightings = await _db.Sightings.Select(k => new Sighting
+                {
+                    Id = k.Id,
+                    City = k.City,
+                    Country = k.Country,
+                    Duration = k.Duration,
+                    Datetime = k.Datetime,
+                    Dateposted = k.Dateposted,
+                    Comments = k.Comments,
+                }).OrderByDescending(x => x.Country).ToListAsync();
+
+                return everySightings;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public async Task<List<Sighting>?> ReadCityAsc()
+        {
+            try
+            {
+                List<Sighting> everySightings = await _db.Sightings.Select(k => new Sighting
+                {
+                    Id = k.Id,
+                    City = k.City,
+                    Country = k.Country,
+                    Duration = k.Duration,
+                    Datetime = k.Datetime,
+                    Dateposted = k.Dateposted,
+                    Comments = k.Comments,
+                }).OrderBy(x => x.City).ToListAsync();
+
+                return everySightings;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public async Task<List<Sighting>?> ReadCityDesc()
+        {
+            try
+            {
+                List<Sighting> everySightings = await _db.Sightings.Select(k => new Sighting
+                {
+                    Id = k.Id,
+                    City = k.City,
+                    Country = k.Country,
+                    Duration = k.Duration,
+                    Datetime = k.Datetime,
+                    Dateposted = k.Dateposted,
+                    Comments = k.Comments,
+                }).OrderByDescending(x => x.City).ToListAsync();
+
+                return everySightings;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<bool> Delete(int id)
         {
             try
             {

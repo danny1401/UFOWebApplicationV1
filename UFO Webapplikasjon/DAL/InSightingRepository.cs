@@ -5,9 +5,14 @@ namespace UFO_Webapplikasjon.DAL
 {
     public interface InSightingRepository
     {
-        Task<bool> Lagre(Sighting innSighting);
-        Task<List<Sighting>> HentAlle();
-        Task<bool> Slett(int id);
+        Task<bool> Create(Sighting innSighting);
+        Task<List<Sighting>> ReadAll();
+        Task<List<Sighting>> ReadIdDesc();
+        Task<List<Sighting>> ReadCountryAsc();
+        Task<List<Sighting>> ReadCountryDesc();
+        Task<List<Sighting>> ReadCityAsc();
+        Task<List<Sighting>> ReadCityDesc();
+        Task<bool> Delete(int id);
         Task<Sighting> HentEn(int id);
         Task<bool> Endre(Sighting endreSighting);
     }

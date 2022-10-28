@@ -22,10 +22,9 @@
     </div>
 
     <div class="container-fluid">
-        <!--SLIDESHOW-->
         <div class="row mainimage">
             <div class="col">
-                <img src="./images/bk.png" width="100%" height="700px" />
+                <img class="mainbackground" src="./images/UFO1.jpg" "  />
             </div>
         </div>
 
@@ -36,51 +35,71 @@
                 <div class="lineA"></div>
 
                 <div class="textA">
-                    The UFO website has been updated with the posting of 657 new sighting reports
-                    We are a UfO detector, which shows "evidence" in the form of posts of UFOs through images/videos and descriptive texts.
-                    <br />
-                    What happened and what was seen etc.
-                    <i style="color:orange">I would love to have more text here</i>
+                    The UFO Observations is a website that collects UFO sightings around the world. The goal is to collect observations users have reported and post them here for others to see. The reports include location, duration, date and time of the sightings.
+                    <p></p>
+                    The idea stems from a team interested in extraterrestrial activities. We believe there is more to the universe than just humans, and we wish to create a platform for other people that share the same interest and wish to see collected reported sightings. These are observations by individuals, not professionals nor are they necessarily deemed factual. Our goal is to expand and reach even more people.
                 </div>
 
                 <div class="buttonA">
                     <a href="article.html">
-                        <span class="toggle_text">show more</span>
+                        <span class="toggle_text">Show more</span>
                         <span class="arrow"></span>
                     </a>
                 </div>
             </div>
         </div>
 
+        <div class="col counter notVisible">
+            <h2 class="titleC">
+                Articles:
+                <span class="textC" id="count2"></span>
+                <span style="color:white;">observations</span>
+            </h2>
+        </div>
+
         <!--ARTICLE PREVIEW-->
         <div class="row previewMain">
             <!--COUNTER-->
-            <div class="col-3 counter">
+            <div class="col-3 counter visible">
                 <h1 class="titleC">Articles</h1>
                 <p class="textC" id="count"></p>
             </div>
-
             <!--ARTICLES-->
             <div class="col-9 preview">
                 <div class="row">
                     <h2 class="latest">Latest Observations</h2>
                 </div>
                 <div class="row article">
-                    <div class="col-3 date">
+                    <div class="col-3 date visible">
                         <div>Published Date: <span id="dateposted1"></span></div>
                         <div>Date/Time: <span id="datetime1"></span></div>
                         <div>Duration: <span id="duration1"></span></div>
                     </div>
-                    <div class="col-9 comment">
+
+                    <div class="col-3 dateF notVisible">
+                        <div class="row">
+                            <div class="col-7 dategroup">
+                                <div>Published Date: <span id="dateposted1v1"></span></div>
+                                <div>Date/Time: <span id="datetime1v1"></span></div>
+                                <div>Duration: <span id="duration1v1"></span></div>
+                            </div>
+                            <div class="col-5 btngroup">
+                                <a class="btnCrud" id="update1" href="endre.html?id=">Update</a>
+                                <div></div>
+                                <button class="btnCrud" id="delete1">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-9 comment wideC">
                         <div class="row">
                             <div class="col-8 titleP">
                                 <h3><span class="fl" id="city1">Oslo</span>, <span class="fl" id="country1">Norway</span></h3>
                             </div>
                             <div class="col-4">
                                 <div class="row">
-                                    <a class="col-5 btnCrud" id="update1" href="">Update</a>
+                                    <a class="col-5 btnCrud visible" id="update1" href="">Update</a>
                                     <div class="col-1"></div>
-                                    <a class="col-5 btnCrud" id="delete1" href="">Delete</a>
+                                    <a class="col-5 btnCrud visible" id="delete1" href="">Delete</a>
                                 </div>
                             </div>
                         </div>
@@ -93,21 +112,36 @@
                 </div>
 
                 <div class="row article">
-                    <div class="col-3 date">
+                    <div class="col-3 date visible">
                         <div>Published Date: <span id="dateposted2"></span></div>
                         <div>Date/Time: <span id="datetime2"></span></div>
                         <div>Duration: <span id="duration2"></span></div>
                     </div>
-                    <div class="col-9 comment">
+
+                    <div class="col-3 dateF notVisible">
+                        <div class="row">
+                            <div class="col-7 dategroup">
+                                <div>Published Date: <span id="dateposted2v2"></span></div>
+                                <div>Date/Time: <span id="datetime2v2"></span></div>
+                                <div>Duration: <span id="duration2v2"></span></div>
+                            </div>
+                            <div class="col-5 btngroup">
+                                <a class="btnCrud" id="update2" href="endre.html?id=">Update</a>
+                                <div></div>
+                                <button class="btnCrud" id="delete2">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-9 comment wideC">
                         <div class="row">
                             <div class="col-8 titleP">
                                 <h3><span class="fl" id="city2">Oslo</span>, <span class="fl" id="country2">Norway</span></h3>
                             </div>
                             <div class="col-4">
                                 <div class="row">
-                                    <a class="col-5 btnCrud" id="update2" href="">Update</a>
+                                    <a class="col-5 btnCrud visible" id="update2" href="">Update</a>
                                     <div class="col-1"></div>
-                                    <a class="col-5 btnCrud" id="delete2" href="">Delete</a>
+                                    <a class="col-5 btnCrud visible" id="delete2" href="">Delete</a>
                                 </div>
                             </div>
                         </div>
@@ -118,8 +152,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <a href='article.html' class="seemore">see more</a>
+                <div class="row seemore">
+                    <a href="article.html">See more</a>
                 </div>
             </div>
         </div>
@@ -141,13 +175,10 @@
                     <br />
                     Org.Nr 666 356 106
                     <br />
-                    E-mail: <span><a href="mailto:support@reset.com">support@reset.com</a></span>
+                    <span style="padding:0;">E-mail: <a href="mailto:support@reset.com">support@reset.com</a></span>
                     <br />
-                    Telephone: <a href="tel:+47 123 45 678">+47 123 45 678</a>
+                    <span style="padding:0;">Telephone: <a href="tel:+47 123 45 678">+47 123 45 678</a></span>
                     <br />
-                    Address: Clara Holsts hus, Pilestredet 46
-                    <br />
-                    Postal Code: 0167 Oslo
                 </div>
             </div>
             <div class="col-4">
@@ -158,7 +189,7 @@
                     please reports to us!
                     <br />
                     <br />
-                    <a href='/lagre.html' class="filebutton">Submit a Report</a>
+                    <a href='/create.html' class="filebutton">Submit a Report</a>
                 </div>
             </div>
         </div>

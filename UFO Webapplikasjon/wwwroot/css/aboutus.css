@@ -7,23 +7,26 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    border-bottom: 3px solid white;
 }
 .header-content {
     margin-bottom: 150px;
-    color: black;
+    color: #141f38;
     text-align: center;
 }
     .header-content h2 {
-        font-size: 4vmin;
+        font-size: 4.5vmin;
     }
 
 .line {
     width: 150px;
     height: 4px;
-    background: blue;
+    background: white;
     margin: 10px auto;
     border-radius: 5px;
+}
+.shadow1 {
+    text-shadow: 1px 1px black;
+    box-shadow: none;
 }
 
 .header-content h1 {
@@ -72,14 +75,19 @@ h1 {
     margin-top: 50px;
 }
 
+.imgHistory {
+    width: 500px;
+    height: 300px;
+}
+
 h4 {
     font-size: 3vmin;
-    color: brown;
+    color: darkblue;
     margin: 20px auto;
 }
 
 p {
-    color: darkblue;
+    color: black;
 }
 
 .events .ctn {
@@ -89,13 +97,11 @@ p {
 .explore {
     width: 100%;
     height: 100vh;
-    background-image: url("../images/background-UFO.jpg");
+    background-image: url("../images/background-test1.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
-    border-top: 3px solid white;
-    border-bottom: 3px solid white;
 }
 
 .explore-content {
@@ -165,9 +171,9 @@ p {
 }
 
 
-    .teams:hover {
-        background: gray;
+ .teams:hover {
         border-radius: 12px;
+        background: wheat;
     }
 
 

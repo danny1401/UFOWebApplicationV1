@@ -16,7 +16,7 @@
         <div class="header-right">
             <a href="./index.html">Home</a>
             <a class="active" href="./article.html">Feed</a>
-            <a href="./lagre.html">Submit a report</a>
+            <a href="./create.html">Submit a report</a>
             <a href="./aboutus.html">About us</a>
         </div>
     </div>
@@ -25,7 +25,30 @@
     <div class="container-fluid feed">
         <div class="row description">
             <h1>UFO Observations</h1>
-            <a href="lagre.html" class="btn btn-primary">Lagre ny rapport</a>
+        </div>
+        <div class="container sort">
+            <div class="row">
+                <div class="col-2">
+                    <h2>Sort by:</h2>
+                </div>
+                <div class="col-2">
+                    <button id="idAsc" class="btnAC visible" onclick="readAllSightings()">ID &#9660;</button>
+                    <button id="idDesc" class="btnAC notVisible" onclick="sortByIdDesc()">ID &#9650;</button>
+                </div>
+                <div class="col-2">
+                    <button id="cityAsc" class="btnAC visible" onclick="sortByCityASC()">City &#9660;</button>
+                    <button id="cityDesc" class="btnAC notVisible" onclick="sortByCityDESC()">City &#9650;</button>
+                </div>
+                <div class="col-2">
+                    <button id="countryAsc" class="btnAC visible" onclick="sortByCountryASC()">Country &#9660;</button>
+                    <button id="countryDesc" class="btnAC notVisible" onclick="sortByCountryDESC()">Country &#9650;</button>
+                </div>
+                <div class="col-4 subright">
+                    <button class="btnCA">
+                        <a href="./create.html">Submit a Report</a>
+                    </button>
+                </div>
+            </div>
         </div>
         <br />
         <div id="reports"></div>

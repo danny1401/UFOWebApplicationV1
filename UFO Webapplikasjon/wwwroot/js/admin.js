@@ -1,9 +1,9 @@
 ﻿$(function () {
-    hentAlleSightings();
+    readAllSightings();
 });
 
-function hentAlleSightings() {
-    $.get("sighting/hentAlle", function (reports) {
+function readAllSightings() {
+    $.get("sighting/readAll", function (reports) {
         formaterSightings(reports);
     });
 }
@@ -23,15 +23,15 @@ function formaterSightings(reports) {
             "<td>" + report.datetime + "</td>" +
             "<td>" + report.comments + "</td>" +
             "<td> <a class='btn btn-primary' href='endre.html?id=" + report.id + "'>Endre</a></td>" +
-            "<td> <button class='btn btn-danger' onclick='slettSighting(" + report.id + ")'>Slett</button></td>" +
+            "<td> <button class='btn btn-danger' onclick='deleteSighting(" + report.id + ")'>Delete</button></td>" +
             "</tr>";
     }
     ut += "</table>";
     $("#reports").html(ut);
 }
 
-function slettSighting(id) {
-    const url = "Sighting/Slett?id=" + id;
+function deleteSighting(id) {
+    const url = "Sighting/Delete?id=" + id;
     $.get(url, function (OK) {
         if (OK) {
             window.location.href = 'index.html';

@@ -3,7 +3,7 @@
 });
 
 function latestSightings() {
-    $.get("sighting/hentAlle", function (reports) {
+    $.get("sighting/ReadAll", function (reports) {
         countTotal(reports);
     });
 }
@@ -20,6 +20,7 @@ function countTotal(reports) {
     // Summen av alle kolonnene
     let ut = count;
     $("#count").html(ut);
+    $("#count2").html(ut);
 
     // De siste posisjonene
     latestPosition = count;
@@ -38,6 +39,10 @@ function countTotal(reports) {
         $("#dateposted1").html(report1.dateposted);
         $("#datetime1").html(report1.datetime);
         $("#comments1").html(report1.comments);
+
+        $("#duration1v1").html(report1.duration);
+        $("#dateposted1v1").html(report1.dateposted);
+        $("#datetime1v1").html(report1.datetime);
     });
     const url2 = "Sighting/HentEn?id=" + secondLatestPosition;
     $.get(url2, function (report2) {
@@ -48,12 +53,16 @@ function countTotal(reports) {
         $("#dateposted2").html(report2.dateposted);
         $("#datetime2").html(report2.datetime);
         $("#comments2").html(report2.comments);
+
+        $("#duration2v2").html(report2.duration);
+        $("#dateposted2v2").html(report2.dateposted);
+        $("#datetime2v2").html(report2.datetime);
     });
     $("#update2").attr('href', "./endre.html?id=" + secondLatestPosition);
 }
 
-function slettSighting(id) {
-    const url = "Sighting/Slett?id="+id;
+function deleteSighting(id) {
+    const url = "Sighting/Delete?id="+id;
     $.get(url, function (OK) {
         if (OK) {
             window.location.href = 'index.html';

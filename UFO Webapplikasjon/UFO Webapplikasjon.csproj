@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\images\double-arrow-down-1.png" />
     <None Include="wwwroot\js\article.js" />
     <None Include="wwwroot\js\endre.js" />
     <None Include="wwwroot\js\admin.js" />
