@@ -238,11 +238,11 @@ footer {
 }
 
 .filebutton {
-    width: 150px;
+    width: 300px;
     color: black;
     background-color: wheat;
     color: black;
-    padding: 5px 10px;
+    padding: 15px 15px;
     font-size: 15px;
     text-align: center;
 }

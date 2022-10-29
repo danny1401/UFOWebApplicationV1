@@ -1,11 +1,54 @@
 ﻿$(function(){
     latestSightings();
+    readLatestReport();
 });
 
 function latestSightings() {
     $.get("sighting/readAll", function (reports) {
-        countTotal(reports);
+        countTotal(reports)
     });
+}
+function readLatestReport() {
+    $.get("sighting/readLatest", function (reports) {
+        formaterSightings(reports);
+    });
+}
+function formaterSightings(reports) {
+    let ut = "<div class='container'>";
+
+        ut += "<div class='row'>" +
+            "<div class='col-3 dateF visible'>" +
+            "<div>Published Date: " + reports.dateposted + "</div>" +
+            "<div>Date/Time: " + reports.datetime + "</div>" +
+            "<div>Duration: " + reports.duration + "</div>" +
+            "</div>" +
+
+
+            "<div class='col-3 dateF notVisible'>" +
+            "<div class='row'>" +
+            "<div class='col-7 dategroup'>" +
+            "<div>Published Date: " + reports.dateposted + "</div>" +
+            "<div>Date/Time: " + reports.datetime + "</div>" +
+            "<div>Duration: " + reports.duration + "</div>" +
+            "</div><div class='col-5 btngroup'>" +
+            "<a class='btnCrud' id='update1' href='update.html?id=" + reports.id + "'>Update</a>" +
+            "<div></div>" +
+            "<button class='btnCrud' onclick='deleteSighting(" + reports.id + ")'>Delete</button>" +
+            "</div></div></div>" +
+
+            "<div class='col-9 commentF'><div class='row'>" +
+            "<div class='col-7 titleP'><h3>" +
+            "<span class='fl'> " + reports.city + "</span >, <span class='fl'>" + reports.country + "</span>" +
+            "</h3></div>" +
+            "<div class='col-5 visible'><div class='row'>" +
+            "<a class='col-5 btnCrud' id='update1' href='update.html?id=" + reports.id + "'>Update</a>" +
+            "<div class='col-1'></div>" +
+            "<button class='col-5 btnCrud' onclick='deleteSighting(" + reports.id + ")'>Delete</button>" +
+            "</div></div></div>" +
+            "<div class='textF'><b>The observation:</b><br />" + reports.comments + "</div>" +
+            "</div></div>";
+    ut += "</div>";
+    $("#latestReport").html(ut);
 }
 
 function countTotal(reports) {
@@ -17,48 +60,10 @@ function countTotal(reports) {
         count++;
     }
 
-    // Summen av alle kolonnene
+    // Summen printes ut
     let ut = count;
     $("#count").html(ut);
     $("#count2").html(ut);
-
-    // De siste posisjonene
-    latestPosition = count;
-    secondLatestPosition = count - 1;
-
-    console.log(latestPosition);
-    console.log(secondLatestPosition);
-
-    // Henter de siste observasjonene
-    const url1 = "Sighting/readOne?id=" + latestPosition;
-    $.get(url1, function (report1) {
-        $("#id1").html(report1.id);
-        $("#city1").html(report1.city);
-        $("#country1").html(report1.country);
-        $("#duration1").html(report1.duration);
-        $("#dateposted1").html(report1.dateposted);
-        $("#datetime1").html(report1.datetime);
-        $("#comments1").html(report1.comments);
-
-        $("#duration1v1").html(report1.duration);
-        $("#dateposted1v1").html(report1.dateposted);
-        $("#datetime1v1").html(report1.datetime);
-    });
-    const url2 = "Sighting/readOne?id=" + secondLatestPosition;
-    $.get(url2, function (report2) {
-        $("#id2").html(report2.id);
-        $("#city2").html(report2.city);
-        $("#country2").html(report2.country);
-        $("#duration2").html(report2.duration);
-        $("#dateposted2").html(report2.dateposted);
-        $("#datetime2").html(report2.datetime);
-        $("#comments2").html(report2.comments);
-
-        $("#duration2v2").html(report2.duration);
-        $("#dateposted2v2").html(report2.dateposted);
-        $("#datetime2v2").html(report2.datetime);
-    });
-    $("#update2").attr('href', "./update.html?id=" + secondLatestPosition);
 }
 
 function deleteSighting(id) {

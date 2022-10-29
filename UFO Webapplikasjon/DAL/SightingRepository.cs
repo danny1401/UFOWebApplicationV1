@@ -171,22 +171,31 @@ namespace UFO_Webapplikasjon.DAL
             }
         }
 
-        public async Task<bool> Delete(int id)
+        public async Task<Sighting> ReadLatest()
         {
             try
             {
-                Sightings singleDBSighting = await _db.Sightings.FindAsync(id);
-                _db.Sightings.Remove(singleDBSighting);
-                await _db.SaveChangesAsync();
-                return true;
+                List<Sighting> everySightings = await _db.Sightings.Select(k => new Sighting
+                {
+                    Id = k.Id,
+                    City = k.City,
+                    Country = k.Country,
+                    Duration = k.Duration,
+                    Datetime = k.Datetime,
+                    Dateposted = k.Dateposted,
+                    Comments = k.Comments,
+                }).OrderByDescending(x => x.Id).ToListAsync();
+
+                var latestRecord = everySightings.FirstOrDefault();
+
+                return latestRecord;
             }
             catch
             {
-                return false;
+                return null;
             }
         }
 
-        
         public async Task<Sighting> ReadOne(int Id)
         {
             Sightings singleSighting = await _db.Sightings.FindAsync(Id);
@@ -201,6 +210,21 @@ namespace UFO_Webapplikasjon.DAL
                 Comments = singleSighting.Comments,
             };
             return hentetKunde;
+        }
+
+        public async Task<bool> Delete(int id)
+        {
+            try
+            {
+                Sightings singleDBSighting = await _db.Sightings.FindAsync(id);
+                _db.Sightings.Remove(singleDBSighting);
+                await _db.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public async Task<bool> Update(Sighting updateSighting)

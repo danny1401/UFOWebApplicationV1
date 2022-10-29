@@ -9,6 +9,8 @@ function readAllSightings() {
     $("#idAsc").hide();
     $("#idDesc").show();
 }
+
+// Akkurat lik readAllSightings men med litt andre justeringer
 function sortByIdDesc() {
     $.get("sighting/readIdDesc", function (reports) {
         formaterSightings(reports);

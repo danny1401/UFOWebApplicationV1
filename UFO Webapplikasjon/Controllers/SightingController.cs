@@ -50,6 +50,11 @@ namespace UFO_Webapplikasjon.Controllers
             return await _db.Delete(id);
         }
 
+        public async Task<Sighting> ReadLatest()
+        {
+            return await _db.ReadLatest();
+        }
+
         public async Task<Sighting> ReadOne(int id)
         {
             return await _db.ReadOne(id);
