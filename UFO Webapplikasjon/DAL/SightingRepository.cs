@@ -1,5 +1,7 @@
 ﻿using UFO_Webapplikasjon.Model;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
+using Microsoft.AspNetCore.Mvc;
 
 namespace UFO_Webapplikasjon.DAL
 {
@@ -12,11 +14,12 @@ namespace UFO_Webapplikasjon.DAL
             _db = db;
         }
 
-        public async Task<bool> Lagre(Sighting innSighting)
+        public async Task<bool> Create(Sighting innSighting)
         {
             try
             {
                 var newSightingRow = new Sightings();
+
                 newSightingRow.City = innSighting.City;
                 newSightingRow.Country = innSighting.Country;
                 newSightingRow.Duration = innSighting.Duration;
@@ -24,21 +27,6 @@ namespace UFO_Webapplikasjon.DAL
                 newSightingRow.Datetime = innSighting.Datetime;
                 newSightingRow.Comments = innSighting.Comments;
 
-                var checkPhoneNr = await _db.Clients.FindAsync(innSighting.PhoneNr);
-                if (checkPhoneNr == null)
-                {
-                    var ClientsRow = new Clients
-                    {
-                        Firstname = innSighting.Firstname,
-                        Lastname = innSighting.Lastname,
-                        PhoneNr = innSighting.PhoneNr
-                    };
-                    newSightingRow.PhoneNr = ClientsRow;
-                }
-                else
-                {
-                    newSightingRow.PhoneNr = checkPhoneNr;
-                }
                 _db.Sightings.Add(newSightingRow);
                 await _db.SaveChangesAsync();
                 return true;
@@ -50,24 +38,19 @@ namespace UFO_Webapplikasjon.DAL
         }
 
 
-        public async Task<List<Sighting>?> HentAlle()
+        public async Task<List<Sighting>?> ReadAll()
         {
             try
             {
                 List<Sighting> everySightings = await _db.Sightings.Select(k => new Sighting
                 {
                     Id = k.Id,
-
                     City = k.City,
                     Country = k.Country,
                     Duration = k.Duration,
                     Datetime = k.Datetime,
                     Dateposted = k.Dateposted,
                     Comments = k.Comments,
-                    
-                    Firstname = k.PhoneNr.Firstname,
-                    Lastname = k.PhoneNr.Lastname,
-                    PhoneNr = k.PhoneNr.PhoneNr
                 }).ToListAsync();
 
                 return everySightings;
@@ -78,30 +61,169 @@ namespace UFO_Webapplikasjon.DAL
             }
         }
 
+        // Sorts order of ReadAll() based on Country
+        public async Task<List<Sighting>?> ReadCountryAsc()
+        {
+            try
+            {
+                List<Sighting> everySightings = await _db.Sightings.Select(k => new Sighting
+                {
+                    Id = k.Id,
+                    City = k.City,
+                    Country = k.Country,
+                    Duration = k.Duration,
+                    Datetime = k.Datetime,
+                    Dateposted = k.Dateposted,
+                    Comments = k.Comments,
+                }).OrderBy(x => x.Country).ToListAsync();
 
-        public async Task<Sighting> HentEn(int Id)
+                return everySightings;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        // Reversed order of ReadAll() based on Country
+        public async Task<List<Sighting>?> ReadCountryDesc()
+        {
+            try
+            {
+                List<Sighting> everySightings = await _db.Sightings.Select(k => new Sighting
+                {
+                    Id = k.Id,
+                    City = k.City,
+                    Country = k.Country,
+                    Duration = k.Duration,
+                    Datetime = k.Datetime,
+                    Dateposted = k.Dateposted,
+                    Comments = k.Comments,
+                }).OrderByDescending(x => x.Country).ToListAsync();
+
+                return everySightings;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        // Sorts order of ReadAll() based on City
+        public async Task<List<Sighting>?> ReadCityAsc()
+        {
+            try
+            {
+                List<Sighting> everySightings = await _db.Sightings.Select(k => new Sighting
+                {
+                    Id = k.Id,
+                    City = k.City,
+                    Country = k.Country,
+                    Duration = k.Duration,
+                    Datetime = k.Datetime,
+                    Dateposted = k.Dateposted,
+                    Comments = k.Comments,
+                }).OrderBy(x => x.City).ToListAsync();
+
+                return everySightings;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        // Reversed order of ReadAll() based on City
+        public async Task<List<Sighting>?> ReadCityDesc()
+        {
+            try
+            {
+                List<Sighting> everySightings = await _db.Sightings.Select(k => new Sighting
+                {
+                    Id = k.Id,
+                    City = k.City,
+                    Country = k.Country,
+                    Duration = k.Duration,
+                    Datetime = k.Datetime,
+                    Dateposted = k.Dateposted,
+                    Comments = k.Comments,
+                }).OrderByDescending(x => x.City).ToListAsync();
+
+                return everySightings;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        // Reversed order of ReadAll() based on Id
+        public async Task<List<Sighting>?> ReadIdDesc()
+        {
+            try
+            {
+                List<Sighting> everySightings = await _db.Sightings.Select(k => new Sighting
+                {
+                    Id = k.Id,
+                    City = k.City,
+                    Country = k.Country,
+                    Duration = k.Duration,
+                    Datetime = k.Datetime,
+                    Dateposted = k.Dateposted,
+                    Comments = k.Comments,
+                }).OrderByDescending(x => x.Id).ToListAsync();
+
+                return everySightings;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        // Reversed order of ReadAll() based on Id and get a single Object
+        public async Task<Sighting> ReadLatest()
+        {
+            try
+            {
+                List<Sighting> everySightings = await _db.Sightings.Select(k => new Sighting
+                {
+                    Id = k.Id,
+                    City = k.City,
+                    Country = k.Country,
+                    Duration = k.Duration,
+                    Datetime = k.Datetime,
+                    Dateposted = k.Dateposted,
+                    Comments = k.Comments,
+                }).OrderByDescending(x => x.Id).ToListAsync();
+
+                var latestRecord = everySightings.FirstOrDefault();
+
+                return latestRecord;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<Sighting> ReadOne(int Id)
         {
             Sightings singleSighting = await _db.Sightings.FindAsync(Id);
             var hentetKunde = new Sighting()
             {
                 Id = singleSighting.Id,
-
                 City = singleSighting.City,
                 Country = singleSighting.Country,
                 Duration = singleSighting.Duration,
                 Dateposted = singleSighting.Dateposted,
                 Datetime = singleSighting.Datetime,
                 Comments = singleSighting.Comments,
-
-                Firstname= singleSighting.PhoneNr.Firstname,
-                Lastname = singleSighting.PhoneNr.Lastname,
-                PhoneNr = singleSighting.PhoneNr.PhoneNr
             };
             return hentetKunde;
         }
 
-
-        public async Task<bool> Slett(int id)
+        public async Task<bool> Delete(int id)
         {
             try
             {
@@ -116,38 +238,18 @@ namespace UFO_Webapplikasjon.DAL
             }
         }
 
-
-        public async Task<bool> Endre(Sighting endreSighting)
+        public async Task<bool> Update(Sighting updateSighting)
         {
             try
             {
-                var endreObjekt = await _db.Sightings.FindAsync(endreSighting.Id);
-                if (endreObjekt.PhoneNr.PhoneNr != endreSighting.PhoneNr)
-                {
-                    var sjekkPostnr = _db.Clients.Find(endreSighting.PhoneNr);
-                    if (sjekkPostnr == null)
-                    {
-                        var ClientsRow = new Clients
-                        {
-                            Firstname = endreSighting.Firstname,
-                            Lastname = endreSighting.Lastname,
-                            PhoneNr = endreSighting.PhoneNr
-                        };
-                        endreObjekt.PhoneNr = ClientsRow;
-                    }
-                    else
-                    {
-                        endreObjekt.PhoneNr.PhoneNr = endreSighting.PhoneNr;
-                    }
-                }
-                endreObjekt.City = endreSighting.City;
-                endreObjekt.Country = endreSighting.Country;
-                endreObjekt.Duration = endreSighting.Duration;
-                endreObjekt.Dateposted = endreSighting.Dateposted;
-                endreObjekt.Datetime = endreSighting.Datetime;
-                endreObjekt.Comments = endreSighting.Comments;
-
-        await _db.SaveChangesAsync();
+                var updateObjekt = await _db.Sightings.FindAsync(updateSighting.Id);
+                updateObjekt.City = updateSighting.City;
+                updateObjekt.Country = updateSighting.Country;
+                updateObjekt.Duration = updateSighting.Duration;
+                updateObjekt.Dateposted = updateSighting.Dateposted;
+                updateObjekt.Datetime = updateSighting.Datetime;
+                updateObjekt.Comments = updateSighting.Comments;
+                await _db.SaveChangesAsync();
             }
             catch
             {
@@ -155,5 +257,6 @@ namespace UFO_Webapplikasjon.DAL
             }
             return true;
         }
+
     }
 }

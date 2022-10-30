@@ -1,40 +1,76 @@
 ﻿$(function(){
-    hentAlleSightings();
+    totalSightings();
+    readLatestReport();
 });
 
-function hentAlleSightings() {
-    $.get("Sighting/hentAlle", function (reports) {
-        formaterSightings(reports);
+function totalSightings() {
+    $.get("sighting/readAll", function (reports) {
+        // Henter all data og sender til telleren
+        countTotal(reports)
     });
 }
 
+// Henter siste data
+function readLatestReport() {
+    $.get("sighting/readLatest", function (reports) {
+        formaterSightings(reports);
+    });
+}
 function formaterSightings(reports) {
-    let ut = "<table class='table table-striped'>" +
-        "<tr>" +
-        "<th>City</th><th>Country</th><th>Duration</th><th>Date Posted</th><th>Date/Time</th><th>Comments</th>" +
-        "<th>First Name</th><th>Last Name</th><th>Phone Number</th><th></th><th></th>" +
-        "</tr>";
-    for (let report of reports) {
-        ut += "<tr>" + 
-            "<td>" + report.city + "</td>" +
-            "<td>" + report.country + "</td>" +
-            "<td>" + report.duration + "</td>" +
-            "<td>" + report.dateposted + "</td>" +
-            "<td>" + report.datetime + "</td>" +
-            "<td>" + report.comments + "</td>" +
-            "<td>" + report.firstname + "</td>" +
-            "<td>" + report.lastname + "</td>" +
-            "<td>" + report.phoneNr + "</td>" +
-            "<td> <a class='btn btn-primary' href='endre.html?id="+report.id+"'>Endre</a></td>"+
-            "<td> <button class='btn btn-danger' onclick='slettSighting("+report.id+")'>Slett</button></td>"+
-            "</tr>";
-    }
-    ut += "</table>";
-    $("#reports").html(ut);
+    let ut = "<div class='container'>";
+
+        ut += "<div class='row'>" +
+            "<div class='col-3 dateF visible'>" +
+            "<div>Published Date: " + reports.dateposted + "</div>" +
+            "<div>Date/Time: " + reports.datetime + "</div>" +
+            "<div>Duration: " + reports.duration + "</div>" +
+            "</div>" +
+
+
+            "<div class='col-3 dateF notVisible'>" +
+            "<div class='row'>" +
+            "<div class='col-7 dategroup'>" +
+            "<div>Published Date: " + reports.dateposted + "</div>" +
+            "<div>Date/Time: " + reports.datetime + "</div>" +
+            "<div>Duration: " + reports.duration + "</div>" +
+            "</div><div class='col-5 btngroup'>" +
+            "<a class='btnCrud' id='update1' href='update.html?id=" + reports.id + "'>Update</a>" +
+            "<div></div>" +
+            "<button class='btnCrud' onclick='deleteSighting(" + reports.id + ")'>Delete</button>" +
+            "</div></div></div>" +
+
+            "<div class='col-9 commentF'><div class='row'>" +
+            "<div class='col-7 titleP'><h3>" +
+            "<span class='fl'> " + reports.city + "</span >, <span class='fl'>" + reports.country + "</span>" +
+            "</h3></div>" +
+            "<div class='col-5 visible'><div class='row'>" +
+            "<a class='col-5 btnCrud' id='update1' href='update.html?id=" + reports.id + "'>Update</a>" +
+            "<div class='col-1'></div>" +
+            "<button class='col-5 btnCrud' onclick='deleteSighting(" + reports.id + ")'>Delete</button>" +
+            "</div></div></div>" +
+            "<div class='textF'><b>The observation:</b><br />" + reports.comments + "</div>" +
+            "</div></div>";
+    ut += "</div>";
+    $("#latestReport").html(ut);
 }
 
-function slettSighting(id) {
-    const url = "Sighting/Slett?id="+id;
+function countTotal(reports) {
+    // Tellervariabel
+    let count = 0;
+
+    // Looper gjennom alle kolonnene i tabellen
+    for (let report of reports) {
+        count++;
+    }
+
+    // Summen printes ut
+    let ut = count;
+    $("#count").html(ut);
+    $("#count2").html(ut);
+}
+
+function deleteSighting(id) {
+    const url = "Sighting/delete?id="+id;
     $.get(url, function (OK) {
         if (OK) {
             window.location.href = 'index.html';

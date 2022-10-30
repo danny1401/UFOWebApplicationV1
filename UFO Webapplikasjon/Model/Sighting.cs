@@ -11,9 +11,5 @@ namespace UFO_Webapplikasjon.Model
         public string Dateposted { get; set; }
         public string Datetime { get; set; }
         public string Comments { get; set; }
-
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
-        public string PhoneNr { get; set; }
     }   
 }

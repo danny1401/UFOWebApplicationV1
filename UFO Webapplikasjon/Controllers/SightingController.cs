@@ -14,29 +14,55 @@ namespace UFO_Webapplikasjon.Controllers
             _db = db;
         }
 
-        public async Task<bool> Lagre(Sighting innSighting)
+        public async Task<bool> Create(Sighting innSighting)
         {
-            return await _db.Lagre(innSighting);
+            return await _db.Create(innSighting);
         }
 
-        public async Task<List<Sighting>> HentAlle()
+        public async Task<List<Sighting>> ReadAll()
         {
-            return await _db.HentAlle();
+            return await _db.ReadAll();
+        }
+        
+        public async Task<List<Sighting>> ReadIdDesc()
+        {
+            return await _db.ReadIdDesc();
+        }
+        public async Task<List<Sighting>> ReadCountryAsc()
+        {
+            return await _db.ReadCountryAsc();
+        }
+        public async Task<List<Sighting>> ReadCountryDesc()
+        {
+            return await _db.ReadCountryDesc();
+        }
+        public async Task<List<Sighting>> ReadCityAsc()
+        {
+            return await _db.ReadCityAsc();
+        }
+        public async Task<List<Sighting>> ReadCityDesc()
+        {
+            return await _db.ReadCityDesc();
         }
 
-        public async Task<bool> Slett(int id)
+        public async Task<bool> Delete(int id)
         {
-            return await _db.Slett(id);
+            return await _db.Delete(id);
         }
 
-        public async Task<Sighting> HentEn(int id)
+        public async Task<Sighting> ReadLatest()
         {
-            return await _db.HentEn(id);
+            return await _db.ReadLatest();
         }
 
-        public async Task<bool> Endre(Sighting endreSighting)
+        public async Task<Sighting> ReadOne(int id)
         {
-            return await _db.Endre(endreSighting);
+            return await _db.ReadOne(id);
+        }
+
+        public async Task<bool> Update(Sighting updateSighting)
+        {
+            return await _db.Update(updateSighting);
         }
     }
 }
