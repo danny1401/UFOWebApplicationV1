@@ -1,4 +1,5 @@
 ﻿$(function () {
+    // Gjemmer vekk feilmelding
     $("#feil").hide();
 });
 
@@ -34,6 +35,7 @@ function updateSighting() {
             window.location.href = './article.html';
         }
         else {
+            // Viser feilmelding
             $("#feil").show();
             $("#feil").html("Feil i db - prøv igjen senere");
         }

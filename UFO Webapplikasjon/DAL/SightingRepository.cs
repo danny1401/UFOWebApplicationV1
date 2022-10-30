@@ -61,6 +61,7 @@ namespace UFO_Webapplikasjon.DAL
             }
         }
 
+        // Sorts order of ReadAll() based on Country
         public async Task<List<Sighting>?> ReadCountryAsc()
         {
             try
@@ -83,6 +84,8 @@ namespace UFO_Webapplikasjon.DAL
                 return null;
             }
         }
+
+        // Reversed order of ReadAll() based on Country
         public async Task<List<Sighting>?> ReadCountryDesc()
         {
             try
@@ -105,6 +108,8 @@ namespace UFO_Webapplikasjon.DAL
                 return null;
             }
         }
+
+        // Sorts order of ReadAll() based on City
         public async Task<List<Sighting>?> ReadCityAsc()
         {
             try
@@ -127,6 +132,8 @@ namespace UFO_Webapplikasjon.DAL
                 return null;
             }
         }
+
+        // Reversed order of ReadAll() based on City
         public async Task<List<Sighting>?> ReadCityDesc()
         {
             try
@@ -149,6 +156,8 @@ namespace UFO_Webapplikasjon.DAL
                 return null;
             }
         }
+
+        // Reversed order of ReadAll() based on Id
         public async Task<List<Sighting>?> ReadIdDesc()
         {
             try
@@ -172,6 +181,7 @@ namespace UFO_Webapplikasjon.DAL
             }
         }
 
+        // Reversed order of ReadAll() based on Id and get a single Object
         public async Task<Sighting> ReadLatest()
         {
             try

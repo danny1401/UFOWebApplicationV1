@@ -5,9 +5,12 @@
 
 function totalSightings() {
     $.get("sighting/readAll", function (reports) {
+        // Henter all data og sender til telleren
         countTotal(reports)
     });
 }
+
+// Henter siste data
 function readLatestReport() {
     $.get("sighting/readLatest", function (reports) {
         formaterSightings(reports);
@@ -52,7 +55,7 @@ function formaterSightings(reports) {
 }
 
 function countTotal(reports) {
-    // Telleren
+    // Tellervariabel
     let count = 0;
 
     // Looper gjennom alle kolonnene i tabellen

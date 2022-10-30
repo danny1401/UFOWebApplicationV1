@@ -1,5 +1,7 @@
 ﻿$(function () {
+    // Gjemmer bort feilmelding
     $("#feil").hide();
+
     readAllSightings();
 });
 
@@ -7,6 +9,7 @@ function readAllSightings() {
     $.get("sighting/readAll", function (reports) {
         formaterSightings(reports);
     });
+    // Gjemmer bort knappen og viser funksjonen som reverserer rekkefølgen
     $("#idAsc").hide();
     $("#idDesc").show();
 }
@@ -96,6 +99,7 @@ function deleteSighting(id) {
             window.location.href = 'article.html';
         }
         else {
+            // Viser feilmelding
             $("#feil").show();
             $("#feil").html("Feil i db - prøv igjen senere");
         }
