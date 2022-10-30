@@ -1,2 +1,2 @@
 # Dokumentasjon
-Rapport.pdf er vedlagt som dokumentasjon i zip-filen.
+Dokumentasjon.pdf er vedlagt som dokumentasjon i zip-filen.
