@@ -1,4 +1,5 @@
-﻿$(function(){
+﻿$(function () {
+    $("#feil").hide();
     readAllSightings();
 });
 
@@ -95,6 +96,7 @@ function deleteSighting(id) {
             window.location.href = 'article.html';
         }
         else {
+            $("#feil").show();
             $("#feil").html("Feil i db - prøv igjen senere");
         }
     });

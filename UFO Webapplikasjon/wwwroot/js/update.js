@@ -1,6 +1,9 @@
 ﻿$(function () {
+    $("#feil").hide();
+});
+
+$(function () {
     // hent kunden med kunde-id fra url og vis denne i skjemaet
-    
     const id = window.location.search.substring(1);
 
     const url = "Sighting/readOne?" + id;
@@ -31,6 +34,7 @@ function updateSighting() {
             window.location.href = './article.html';
         }
         else {
+            $("#feil").show();
             $("#feil").html("Feil i db - prøv igjen senere");
         }
     });

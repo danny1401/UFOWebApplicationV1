@@ -7,7 +7,7 @@ namespace UFO_Webapplikasjon.Model
 {
     public class Sightings
     {
-        public int Id { get; set; } // LAGE EN ID FOR BEGGE KLASSENE FOR RELASJONER?
+        public int Id { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
         public string Duration { get; set; }

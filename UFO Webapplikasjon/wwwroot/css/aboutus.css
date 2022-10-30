@@ -44,8 +44,8 @@
 
 /*Events*/
 section {
-    width: 80%;
-    margin: 80px auto;
+    width: 85%;
+    margin: 0px auto;
 }
 
 
@@ -61,10 +61,12 @@ h1 {
 
 .events .row {
     margin-top: 50px;
+    margin-left: 10px;
+    margin-bottom: 50px;
 }
 
 .imgHistory {
-    width: 500px;
+    width: 400px;
     height: 300px;
 }
 
@@ -76,11 +78,13 @@ h4 {
 
 .events .ctn {
     margin-top: 30px;
-}
+} 
 
+
+/*Explore*/
 .explore {
     width: 100%;
-    height: 100vh;
+    height: auto;
     background-image: url("../images/background-test1.jpg");
     background-position: center;
     background-size: cover;
@@ -88,17 +92,27 @@ h4 {
     display: flex;
 }
 
+.blue {
+    background-color: rgb(20, 31, 56,0.4);
+    justify-content: center;
+    padding: 10px;
+    width: 70%;
+}
+
 .explore-content {
-    width: 60%;
     padding: 50px;
     color: whitesmoke;
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
+
     .explore-content h1 {
-        font-size: 7vmin;
+        font-size: 6vmin;
+        color: white
     }
 
     .explore-content .line {
@@ -112,7 +126,6 @@ h4 {
     .explore-content .ctn {
         margin-top: 40px;
     }
-
 
 
 /*teams*/

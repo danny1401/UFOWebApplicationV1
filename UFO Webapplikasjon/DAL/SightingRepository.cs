@@ -60,28 +60,7 @@ namespace UFO_Webapplikasjon.DAL
                 return null;
             }
         }
-        public async Task<List<Sighting>?> ReadIdDesc()
-        {
-            try
-            {
-                List<Sighting> everySightings = await _db.Sightings.Select(k => new Sighting
-                {
-                    Id = k.Id,
-                    City = k.City,
-                    Country = k.Country,
-                    Duration = k.Duration,
-                    Datetime = k.Datetime,
-                    Dateposted = k.Dateposted,
-                    Comments = k.Comments,
-                }).OrderByDescending(x => x.Id).ToListAsync();
 
-                return everySightings;
-            }
-            catch
-            {
-                return null;
-            }
-        }
         public async Task<List<Sighting>?> ReadCountryAsc()
         {
             try
@@ -162,6 +141,28 @@ namespace UFO_Webapplikasjon.DAL
                     Dateposted = k.Dateposted,
                     Comments = k.Comments,
                 }).OrderByDescending(x => x.City).ToListAsync();
+
+                return everySightings;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public async Task<List<Sighting>?> ReadIdDesc()
+        {
+            try
+            {
+                List<Sighting> everySightings = await _db.Sightings.Select(k => new Sighting
+                {
+                    Id = k.Id,
+                    City = k.City,
+                    Country = k.Country,
+                    Duration = k.Duration,
+                    Datetime = k.Datetime,
+                    Dateposted = k.Dateposted,
+                    Comments = k.Comments,
+                }).OrderByDescending(x => x.Id).ToListAsync();
 
                 return everySightings;
             }

@@ -27,6 +27,7 @@
         <form class="form">
             <br />
             <h1 class="titleR">Update an observation</h1>
+            <input type="hidden" id="id" />
             <div class="row form-group">
                 <div class="col-1"></div>
                 <div class="col-md-2"><label for="city">City</label></div>
@@ -45,7 +46,7 @@
             <div class="row form-group">
                 <div class="col-1"></div>
                 <div class="col-md-2"><label for="dateposted">Date posted</label></div>
-                <div class="col-md-9"><input style="height:100%" class="form-control" type="text" id="dateposted" placeholder="Date posted" /></div>
+                <div class="col-md-9"><input style="height:100%" class="form-control" type="text" id="dateposted" placeholder="Date posted" disabled /></div>
             </div>
             <div class="row form-group">
                 <div class="col-1"></div>
@@ -58,8 +59,9 @@
                 <div class="col-md-9"><textarea class="form-control textarea" type="text" id="comments" placeholder="Write a comment ..."></textarea></div>
             </div>
             <div class="form-group submit">
-                <input type="button" id="reg" value="Register" onClick="lagreSighting()" class="subButton" />
+                <input type="button" id="reg" value="Register" onClick="updateSighting()" class="subButton" />
             </div>
+            <div class="form-group submit feil" id="feil"></div>
         </form>
     </div>
 

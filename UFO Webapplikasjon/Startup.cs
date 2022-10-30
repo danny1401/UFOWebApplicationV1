@@ -22,8 +22,7 @@ namespace UFO_Webapplikasjon
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                //DBInit.Initialize(app); 
-                // denne m? fjernes dersom vi vil beholde dataene i databasen og ikke initialisere 
+                //DBInit.Initialize(app);   
             }
 
             app.UseRouting();

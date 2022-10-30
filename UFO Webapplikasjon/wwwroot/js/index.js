@@ -1,9 +1,9 @@
 ﻿$(function(){
-    latestSightings();
+    totalSightings();
     readLatestReport();
 });
 
-function latestSightings() {
+function totalSightings() {
     $.get("sighting/readAll", function (reports) {
         countTotal(reports)
     });
